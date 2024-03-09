@@ -20,7 +20,7 @@ public class MouseMovement : MonoBehaviour
     void Update()
     {
         // Allowing mouse movement only if neither the inventory nor crafting screens are open
-        if (!InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen)
+        if (!InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen && !DialogueSystem.Instance.DialogeUIActive)
         {
             // Get mouse input for rotation
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;

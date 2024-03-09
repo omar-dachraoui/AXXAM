@@ -62,6 +62,28 @@ public class SelectionManager : MonoBehaviour
             var selectionTransform = hit.transform;
             InteractableObject ourinteractable = selectionTransform.GetComponent<InteractableObject>();
             ChoppableTree1 choppableTree = selectionTransform.GetComponent<ChoppableTree1>();
+            NPCInteraction nPCInteraction = selectionTransform.GetComponent<NPCInteraction>();
+
+
+
+            if(nPCInteraction && nPCInteraction.playerinrange)
+            {
+                interaction_text.text = "Talk";
+                interaction_Info_UI.SetActive(true);
+                if(Input.GetKeyDown(KeyCode.T) && !nPCInteraction.isTalkingWithPlayer)
+                {
+                    nPCInteraction.StartConversation();
+                }
+            }
+            else
+            {
+                interaction_text.text = "";
+                interaction_Info_UI.SetActive(false);
+            }
+
+
+
+
 
             // Check if the object is a choppable tree and player is in range
             if (choppableTree && choppableTree.playerInRange)
@@ -110,7 +132,7 @@ public class SelectionManager : MonoBehaviour
             {
                 ontarget = false;
                 // Hide the interaction UI if no InteractableObject component is found
-                interaction_Info_UI.SetActive(false);
+                //interaction_Info_UI.SetActive(false);
                 HandIcon.gameObject.SetActive(false);
                 centerDotIcon.gameObject.SetActive(true);
                 HandIsVisible = false;
