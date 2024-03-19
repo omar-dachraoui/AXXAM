@@ -158,12 +158,19 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
-            Move();
+            if(DialogueSystem.Instance.DialogeUIActive == false)
+            {
+                Move();
+            }
+            
         }
 
         private void LateUpdate()
         {
-            CameraRotation();
+            if(DialogueSystem.Instance.DialogeUIActive == false)
+            {
+                CameraRotation();
+            }
         }
 
         private void AssignAnimationIDs()
@@ -388,5 +395,7 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+        
     }
+    
 }
