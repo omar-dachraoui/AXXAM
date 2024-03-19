@@ -8,6 +8,7 @@ TagManager:
   - pickable
   - Quick_Slot
   - CinemachineTarget
+  - NPC
   layers:
   - Default
   - TransparentFX
