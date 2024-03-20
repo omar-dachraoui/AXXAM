@@ -12,3 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285ff6d12428c49408c9cee38c3f64c0, type: 3}
   m_Name: First_NPC_Quest_1
   m_EditorClassIdentifier: 
+  initialDialog:
+  - 
+  - salamouu 3alaykomm ezei
+  - 'asmmaaa anaa ftourrr kessah lfoukk tji '
+  - famaa kosksii bel 3aloushh maah shwaya rayebb w gezgez
+  - 'ayaa tatla3 tekel w baedd nfarghouuu kamyounn l yajour ?
+
+'
+  acceptOption: 'mrigll madem fama meklaa nkoulsh nn '
+  acceptAnswer: dimaa tejrii ala kerchek
+  declineOption: aaa dsl najemeshh andi l fata9
+  declineAnswer: dimaa tekthebb ty lberah barka ritek t7amel fel bnet ay baraa mriguel
+  comebackAfterDecline: aa chnyaa tharbek echar rjaet
+  comebackInProgress: yyy kamell l beki
+  comebackCompleted: 'hayaa sahitk lfeyda rbehna menek haja '
+  finalWords: tw n3oud nkalmek ken fama haja okhra
+  coinReward: 3
+  rewardItem1: Rock
+  rewardItem2: Rock
+  firstRequirmentItem: Stick
+  firstRequirementAmount: 2
+  secondRequirmentItem: 
+  secondRequirementAmount: 0

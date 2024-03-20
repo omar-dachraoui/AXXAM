@@ -15568,14 +15568,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4170611c41c9446a305567cf1a884c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerinrange: 0
+  playerInRange: 0
   isTalkingWithPlayer: 0
-  questList: []
+  questList:
+  - Accepted: 0
+    Declined: 0
+    initialDialogCompleted: 0
+    IsCompleted: 0
+    hasNoRequirements: 0
+    questInfo: {fileID: 11400000, guid: c2a45fafab339c448bb39cf75fc90af9, type: 2}
   currentActiveQuest:
     Accepted: 0
     Declined: 0
     initialDialogCompleted: 0
     IsCompleted: 0
+    hasNoRequirements: 0
     questInfo: {fileID: 0}
   activeQuestIndex: 0
   firstTimeInteraction: 1
@@ -17229,8 +17236,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
   m_LocalPosition: {x: -60.307762, y: 3.9432178, z: 189.5663}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4358465666288950}
   - {fileID: 4668633969718996}

@@ -9,6 +9,7 @@ public class Quest
     public bool Declined;
     public bool initialDialogCompleted;
     public bool IsCompleted;
+    public bool hasNoRequirements;
     [Header("Quest Info")]
     public QuestInfo questInfo;
 
