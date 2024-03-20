@@ -68,7 +68,7 @@ public class SelectionManager : MonoBehaviour
 
             if(nPCInteraction && nPCInteraction.playerinrange)
             {
-                interaction_text.text = "Talk";
+                interaction_text.text = "Press (T) to Talk";
                 interaction_Info_UI.SetActive(true);
                 if(Input.GetKeyDown(KeyCode.T) && !nPCInteraction.isTalkingWithPlayer)
                 {
