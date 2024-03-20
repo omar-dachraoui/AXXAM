@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2002022445295510684}
   - component: {fileID: 4286418913282314763}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: Stone
   m_TagString: pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerinrange: 0
-  ItemName: rock
+  ItemName: Stone

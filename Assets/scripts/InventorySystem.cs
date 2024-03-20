@@ -160,7 +160,7 @@ public class InventorySystem : MonoBehaviour
         {
             if (slotList[i].transform.childCount > 0)
             {
-                if (slotList[i].transform.GetChild(0).name == nameToRemove + "(Clone)" && counter != 0)
+                if (slotList[i].transform.GetChild(0).name == nameToRemove + "_UI(Clone)" && counter != 0)
                 {
                     Destroy(slotList[i].transform.GetChild(0).gameObject);
                     counter-=1;

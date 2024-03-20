@@ -105,8 +105,7 @@ public class CraftingSystem : MonoBehaviour
 
 
 
-        // Add item into inventory
-        InventorySystem.Instance.AddToInventory(blueprintToCraft.itemName);
+       
 
         // Remove resources from inventory based on the blueprint requirements
         if (blueprintToCraft.numOfRequirement == 1)
@@ -209,7 +208,7 @@ public class CraftingSystem : MonoBehaviour
         {
             switch (itemName)
             {
-                case "rock":
+                case "Stone":
                     stone_count+=1;
                     break;
                 case "Stick":
