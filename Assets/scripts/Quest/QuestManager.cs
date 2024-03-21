@@ -29,4 +29,47 @@ public class QuestManager : MonoBehaviour
     public GameObject questMenuContent;
     [Header("QuestTracker")]
     public GameObject questTrackerContent;
+
+
+    public void  AddActiveQuest(Quest quest)
+    {
+        allActiveQuests.Add(quest);
+        RefreshedQuestList();
+    }
+
+
+
+    public void RefreshedQuestList()
+    {
+        foreach (Quest activeQuest in allActiveQuests)
+        {
+            GameObject questPrefab = Instantiate(activeQuestPrefab, Vector3.zero, Quaternion.identity);
+            questPrefab.transform.SetParent(questMenuContent.transform,false);
+            QuestRow qRow = questPrefab.GetComponent<QuestRow>();
+            qRow.questName.text = activeQuest.questName;
+            qRow.questGiver.text = activeQuest.questGiver;
+
+
+            qRow.isActive = true;
+            qRow.isTracking = false;
+
+
+            qRow.coinAmount.text = $"{activeQuest.questInfo.coinReward}";
+
+            //qRow.firstReward.sprite = ";
+            qRow.firstRewardAmount.text = "";//$"{activeQuest.questInfo.rewardItem1Amount}";
+
+
+            //qRow.secondReward.sprite = ";
+            qRow.secondRewardAmount.text = "";//$"{activeQuest.questInfo.rewardItem2Amount}";
+
+
+
+
+        }
+    }
+
+
+
+
 }

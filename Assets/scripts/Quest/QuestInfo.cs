@@ -29,7 +29,9 @@ public class QuestInfo : ScriptableObject
     [Header("Rewards")]
     public int coinReward;
     public string rewardItem1;
+    public int rewardItem1Amount;
     public string rewardItem2;
+    public int rewardItem2Amount;
  
     [Header("Requirements")]
     public string firstRequirmentItem;

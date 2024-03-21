@@ -244,6 +244,7 @@ public class NPCInteraction : MonoBehaviour
     }
     private void AcceptedQuest()
     {
+        QuestManager.instance.AddActiveQuest(currentActiveQuest);
         currentActiveQuest.Accepted = true;
         currentActiveQuest.Declined = false;
  
