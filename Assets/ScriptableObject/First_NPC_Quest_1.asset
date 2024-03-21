@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: First_NPC_Quest_1
   m_EditorClassIdentifier: 
   initialDialog:
-  - 
   - salamouu 3alaykomm ezei
   - 'asmmaaa anaa ftourrr kessah lfoukk tji '
   - famaa kosksii bel 3aloushh maah shwaya rayebb w gezgez
@@ -29,8 +28,8 @@ MonoBehaviour:
   comebackCompleted: 'hayaa sahitk lfeyda rbehna menek haja '
   finalWords: tw n3oud nkalmek ken fama haja okhra
   coinReward: 3
-  rewardItem1: Rock
-  rewardItem2: Rock
+  rewardItem1: Stone
+  rewardItem2: Stone
   firstRequirmentItem: Stick
   firstRequirementAmount: 2
   secondRequirmentItem: 
