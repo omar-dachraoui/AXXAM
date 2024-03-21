@@ -167,7 +167,7 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            if(DialogueSystem.Instance.DialogeUIActive == false)
+            if(DialogueSystem.Instance.DialogeUIActive == false && !QuestManager.instance.isQuestMenuOpen)
             {
                 CameraRotation();
             }

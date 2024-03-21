@@ -281,6 +281,8 @@ public class NPCInteraction : MonoBehaviour
  
     private void ReceiveRewardAndCompleteQuest()
     {
+        QuestManager.instance.MarkCompletedQuest(currentActiveQuest);
+        
         currentActiveQuest.IsCompleted = true;
  
         var coinsRecieved = currentActiveQuest.questInfo.coinReward;

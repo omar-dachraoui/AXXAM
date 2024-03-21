@@ -29,7 +29,9 @@ MonoBehaviour:
   finalWords: tw n3oud nkalmek ken fama haja okhra
   coinReward: 3
   rewardItem1: Stone
+  rewardItem1Amount: 2
   rewardItem2: Stone
+  rewardItem2Amount: 2
   firstRequirmentItem: Stick
   firstRequirementAmount: 2
   secondRequirmentItem: 
