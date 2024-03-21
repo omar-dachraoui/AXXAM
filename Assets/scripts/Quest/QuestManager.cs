@@ -1,24 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public static QuestManager instance{get; set ;}
+    public static QuestManager Instance{get; set ;}
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
             
         }
         
     }
-
+    
     public List<Quest> allActiveQuests ;
     public List<Quest> allCompletedQuests ;
     [Header("QuestMenu")]
@@ -29,11 +31,35 @@ public class QuestManager : MonoBehaviour
     public GameObject questMenuContent;
     [Header("QuestTracker")]
     public GameObject questTrackerContent;
+    public GameObject trackerRowPrefab;
+    public List<Quest> allTrackedQuests;
 
+
+
+
+
+
+
+
+    public void AddTrackedQuest(Quest quest)
+    {
+        allTrackedQuests.Add(quest);
+        RefreshedTrackedQuestList();
+    }
+    public void RemoveTrackedQuest(Quest quest)
+    {
+        allTrackedQuests.Remove(quest);
+        RefreshedTrackedQuestList();
+    }
+
+   
 
     public void  AddActiveQuest(Quest quest)
     {
         allActiveQuests.Add(quest);
+        //add to tracked
+        AddTrackedQuest(quest);
+
         RefreshedQuestList();
     }
 
@@ -44,6 +70,8 @@ public class QuestManager : MonoBehaviour
         allActiveQuests.Remove(quest);
         //add to completed
         allCompletedQuests.Add(quest);
+        //remove from tracked
+        RemoveTrackedQuest(quest);
         RefreshedQuestList();
     }
 
@@ -80,6 +108,44 @@ public class QuestManager : MonoBehaviour
             isQuestMenuOpen = false;
             
         }
+    }
+    public void RefreshedTrackedQuestList()
+    {
+        // Destroying the previous list
+        foreach (Transform child in questTrackerContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+ 
+        foreach (Quest trackedQuest in allTrackedQuests)
+        {
+            GameObject trackerPrefab = Instantiate(trackerRowPrefab, Vector3.zero, Quaternion.identity);
+            trackerPrefab.transform.SetParent(questTrackerContent.transform, false);
+ 
+            TrackerRow tRow = trackerPrefab.GetComponent<TrackerRow>();
+ 
+            tRow.questName.text = trackedQuest.questName;
+            tRow.questDescription.text = trackedQuest.Description;
+
+
+            var req1 = trackedQuest.questInfo.firstRequirmentItem;
+            var req1Amount = trackedQuest.questInfo.firstRequirementAmount;
+            var req2 = trackedQuest.questInfo.secondRequirmentItem;
+            var req2Amount = trackedQuest.questInfo.secondRequirementAmount;
+ 
+            if (req2!= "") // if we have 2 requirements
+            {
+                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n" +
+               $"{req2}" + InventorySystem.Instance.CountItem(req2)+"/" + $"{req2Amount}\n";
+            }
+            else // if we have only one
+            {
+                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n";
+            }
+ 
+ 
+        }
+ 
     }
 
 

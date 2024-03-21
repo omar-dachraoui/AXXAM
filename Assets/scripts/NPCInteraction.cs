@@ -244,7 +244,7 @@ public class NPCInteraction : MonoBehaviour
     }
     private void AcceptedQuest()
     {
-        QuestManager.instance.AddActiveQuest(currentActiveQuest);
+        QuestManager.Instance.AddActiveQuest(currentActiveQuest);
         currentActiveQuest.Accepted = true;
         currentActiveQuest.Declined = false;
  
@@ -281,7 +281,7 @@ public class NPCInteraction : MonoBehaviour
  
     private void ReceiveRewardAndCompleteQuest()
     {
-        QuestManager.instance.MarkCompletedQuest(currentActiveQuest);
+        QuestManager.Instance.MarkCompletedQuest(currentActiveQuest);
         
         currentActiveQuest.IsCompleted = true;
  

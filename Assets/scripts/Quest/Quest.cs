@@ -6,6 +6,8 @@ public class Quest
 {
     public string questName;
     public string questGiver;
+    public string Description;
+
     [Header("Bools")]
     public bool Accepted;
     public bool Declined;

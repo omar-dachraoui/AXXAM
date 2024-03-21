@@ -102,6 +102,11 @@ public class InventorySystem : MonoBehaviour
         itemToAdd.transform.SetParent(whatSlotToequip.transform);
         itemList.Add(ItemName);
         triggerPickupPop(ItemName, itemToAdd.GetComponent<Image>().sprite);
+        RecalculateList();
+        CraftingSystem.Instance.RefrechNeededItem();
+
+
+        QuestManager.Instance.RefreshedTrackedQuestList();
     }
 
     // Display pickup alert for a certain duration
@@ -167,6 +172,10 @@ public class InventorySystem : MonoBehaviour
                 }
             }
         }
+        RecalculateList();
+        CraftingSystem.Instance.RefrechNeededItem();
+
+        QuestManager.Instance.RefreshedTrackedQuestList();
     }
 
     // Recalculate the list of items in the inventory
@@ -184,5 +193,20 @@ public class InventorySystem : MonoBehaviour
                 itemList.Add(result);
             }
         }
+    }
+
+
+
+    public int CountItem(string nameToCount)
+    {
+        int itemCounter = 0;
+        foreach (string item in itemList)
+        {
+            if (item == nameToCount)
+            {
+                itemCounter++;
+            }
+        }
+        return itemCounter;
     }
 }
