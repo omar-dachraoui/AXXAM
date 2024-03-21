@@ -128,19 +128,19 @@ public class QuestManager : MonoBehaviour
             tRow.questDescription.text = trackedQuest.Description;
 
 
-            var req1 = trackedQuest.questInfo.firstRequirmentItem;
+            var req1 = trackedQuest.questInfo.firstRequirmentItem ;
             var req1Amount = trackedQuest.questInfo.firstRequirementAmount;
-            var req2 = trackedQuest.questInfo.secondRequirmentItem;
+            var req2 = trackedQuest.questInfo.secondRequirmentItem ;
             var req2Amount = trackedQuest.questInfo.secondRequirementAmount;
  
             if (req2!= "") // if we have 2 requirements
             {
-                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n" +
-               $"{req2}" + InventorySystem.Instance.CountItem(req2)+"/" + $"{req2Amount}\n";
+                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1+"_UI")+"/" + $"{req1Amount}\n" +
+               $"{req2 }" + InventorySystem.Instance.CountItem(req2 +"_UI")+"/" + $"{req2Amount}\n";
             }
             else // if we have only one
             {
-                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n";
+                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1+"_UI")+"/" + $"{req1Amount}\n";
             }
  
  

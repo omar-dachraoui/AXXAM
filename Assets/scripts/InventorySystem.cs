@@ -172,6 +172,7 @@ public class InventorySystem : MonoBehaviour
                 }
             }
         }
+        
         RecalculateList();
         CraftingSystem.Instance.RefrechNeededItem();
 
