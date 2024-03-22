@@ -170,7 +170,7 @@ public class QuestManager : MonoBehaviour
 
 
             qRow.isActive = true;
-            qRow.isTracking = false;
+            qRow.isTracking = true;
 
 
             qRow.coinAmount.text = $"{activeQuest.questInfo.coinReward}";

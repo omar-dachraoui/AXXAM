@@ -48,6 +48,7 @@ public class QuestRow : MonoBehaviour
                     isTracking = true;
                     trackingButton.GetComponentInChildren<TextMeshProUGUI>().text = "Untrack";
                     QuestManager.Instance.AddTrackedQuest(thisQuest);
+                   
                 }
             }
             
