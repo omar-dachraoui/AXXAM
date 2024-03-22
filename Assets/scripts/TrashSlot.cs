@@ -105,6 +105,7 @@ public class TrashSlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoi
         DestroyImmediate(itemToBeDeleted.gameObject);
         InventorySystem.Instance.RecalculateList();
         CraftingSystem.Instance.RefrechNeededItem();
+        QuestManager.Instance.RefreshedTrackedQuestList();
         // Hide the deletion confirmation alert
         trashAlertUI.SetActive(false);
     }

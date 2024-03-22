@@ -174,9 +174,10 @@ public class InventorySystem : MonoBehaviour
         }
         
         RecalculateList();
+        QuestManager.Instance.RefreshedTrackedQuestList();
         CraftingSystem.Instance.RefrechNeededItem();
 
-        QuestManager.Instance.RefreshedTrackedQuestList();
+       
     }
 
     // Recalculate the list of items in the inventory
@@ -189,7 +190,7 @@ public class InventorySystem : MonoBehaviour
             if (slot.transform.childCount > 0)
             {
                 string name = slot.transform.GetChild(0).name;
-                string str2 = "(Clone)";
+                string str2 = "_UI(Clone)";
                 string result = name.Replace(str2, "");
                 itemList.Add(result);
             }

@@ -26,4 +26,33 @@ public class QuestRow : MonoBehaviour
     public Image secondReward;
     public TextMeshProUGUI secondRewardAmount;
 
+
+    public Quest thisQuest;
+
+
+    private void Start()
+    {
+
+        trackingButton.onClick.AddListener(() =>
+        {
+           if(isActive)
+            {
+                if (isTracking)
+                {
+                    isTracking = false;
+                    trackingButton.GetComponentInChildren<TextMeshProUGUI>().text = "Track";
+                    QuestManager.Instance.RemoveTrackedQuest(thisQuest);
+                }
+                else
+                {
+                    isTracking = true;
+                    trackingButton.GetComponentInChildren<TextMeshProUGUI>().text = "Untrack";
+                    QuestManager.Instance.AddTrackedQuest(thisQuest);
+                }
+            }
+            
+        });
+
+    }
+
 }

@@ -32,7 +32,7 @@ public class CraftingSystem : MonoBehaviour
 
     // Blueprint for crafting an Axe
     public Blueprint AxeBLP = new Blueprint("Axe",1, 2, "Stone", 3, "Stick", 3);
-    public Blueprint PlankBLP = new Blueprint("Plank", 2,1,  "Log", 1,"", 0);
+    public Blueprint PlankBLP = new Blueprint("Plank", 2,1,  "log", 1,"", 0);
     // Singleton instance
     public static CraftingSystem Instance { get; set; }
 
@@ -118,10 +118,12 @@ public class CraftingSystem : MonoBehaviour
             InventorySystem.Instance.RemoveItem(blueprintToCraft.Req2, blueprintToCraft.Req2amount);
         }
 
-        // Refresh inventory list and UI
-        InventorySystem.Instance.RecalculateList();
+        //Refresh inventory list and UI
+        
+       
         StartCoroutine(calculate());
         RefrechNeededItem();
+        
     }
 
     // Coroutine to calculate and refresh UI
@@ -131,6 +133,7 @@ public class CraftingSystem : MonoBehaviour
 
         // Refresh inventory list and UI
         InventorySystem.Instance.RecalculateList();
+        QuestManager.Instance.RefreshedTrackedQuestList();
         
     }
 
@@ -214,9 +217,9 @@ public class CraftingSystem : MonoBehaviour
                 case "Stick":
                     stick_count+=1;
                     break;
-                     case "log":
+                case "log":
                     log_count+=1;
-                    break;
+                break;
             }
         }
 

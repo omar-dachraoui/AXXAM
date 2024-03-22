@@ -135,12 +135,12 @@ public class QuestManager : MonoBehaviour
  
             if (req2!= "") // if we have 2 requirements
             {
-                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1+"_UI")+"/" + $"{req1Amount}\n" +
-               $"{req2 }" + InventorySystem.Instance.CountItem(req2 +"_UI")+"/" + $"{req2Amount}\n";
+                tRow.questRequirement.text = $"{req1} " + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n" +
+               $"{req2 } " + InventorySystem.Instance.CountItem(req2 )+"/" + $"{req2Amount}\n";
             }
             else // if we have only one
             {
-                tRow.questRequirement.text = $"{req1}" + InventorySystem.Instance.CountItem(req1+"_UI")+"/" + $"{req1Amount}\n";
+                tRow.questRequirement.text = $"{req1} " + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n";
             }
  
  
@@ -161,6 +161,10 @@ public class QuestManager : MonoBehaviour
             GameObject questPrefab = Instantiate(activeQuestPrefab, Vector3.zero, Quaternion.identity);
             questPrefab.transform.SetParent(questMenuContent.transform,false);
             QuestRow qRow = questPrefab.GetComponent<QuestRow>();
+
+            qRow.thisQuest = activeQuest;
+
+
             qRow.questName.text = activeQuest.questName;
             qRow.questGiver.text = activeQuest.questGiver;
 

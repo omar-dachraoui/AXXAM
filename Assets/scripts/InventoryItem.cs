@@ -105,6 +105,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 DestroyImmediate(gameObject);
                 InventorySystem.Instance.RecalculateList();
                 CraftingSystem.Instance.RefrechNeededItem();
+                QuestManager.Instance.RefreshedTrackedQuestList();
             }
         }
     }
