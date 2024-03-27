@@ -36,3 +36,5 @@ MonoBehaviour:
   firstRequirementAmount: 2
   secondRequirmentItem: 
   secondRequirementAmount: 0
+  hasCheckpoints: 0
+  checkpoints: []

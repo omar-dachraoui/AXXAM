@@ -143,13 +143,35 @@ public class QuestManager : MonoBehaviour
             {
                 tRow.questRequirement.text = $"{req1} " + InventorySystem.Instance.CountItem(req1)+"/" + $"{req1Amount}\n";
             }
+
+
+            if(trackedQuest.questInfo.hasCheckpoints)
+            {
+                var existingText = tRow.questRequirement.text;
+                tRow.questRequirement.text = PrintCheckpoints(trackedQuest,existingText);
+            }
  
  
         }
  
     }
 
-
+    private string PrintCheckpoints(Quest trackedQuest, string existingText)
+    {
+        string finalText = existingText;
+        foreach (CheckpointSO cp in trackedQuest.questInfo.checkpoints)
+        {
+            if (cp.isCompleted)
+            {
+                finalText += $"<color=green>{cp.relatedQuestName} is completed</color>\n";
+            }
+            else
+            {
+                finalText += $"<color=red>{cp.relatedQuestName} is not completed</color>\n";
+            }
+        }
+        return finalText;
+    }
 
     public void RefreshedQuestList()
     {
@@ -240,6 +262,10 @@ public class QuestManager : MonoBehaviour
                 qRow.secondReward.gameObject.SetActive(false) ;
                 qRow.secondRewardAmount.text = "";
             }
+
+
+            
+
             
 
 

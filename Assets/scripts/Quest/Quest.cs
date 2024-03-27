@@ -15,7 +15,7 @@ public class Quest
     public bool IsCompleted;
     public bool hasNoRequirements;
     [Header("Quest Info")]
-    public QuestInfo questInfo;
+    public QuestInfoSO questInfo;
 
 
 

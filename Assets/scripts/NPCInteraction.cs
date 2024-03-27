@@ -194,10 +194,48 @@ public class NPCInteraction : MonoBehaviour
                 secondItemCounter++;
             }
         }
+
+
+       SetQuestHasCheckpoints(currentActiveQuest);
+
+
+        bool allCheckpointsCompleted = false;
+
+        if(currentActiveQuest.questInfo.hasCheckpoints)
+        {
+            
+            foreach (CheckpointSO cp in currentActiveQuest.questInfo.checkpoints)
+            {
+                if(cp.isCompleted == false)
+                {
+                    allCheckpointsCompleted = false; // If any checkpoint is not completed, then the quest is not completed
+                    break;
+                }
+                allCheckpointsCompleted = true;
+            }
+        }
+
+
+
+
  
         if (firstItemCounter >= firstRequiredAmount && secondItemCounter >= secondRequiredAmount)
         {
-            return true;
+           if(currentActiveQuest.questInfo.hasCheckpoints)
+           {
+               if(allCheckpointsCompleted)
+               {
+                   return true;
+               }
+               else
+               {
+                   return false;
+               }
+           }
+           else
+           {
+               return true;
+           }
         }
         else
         {
@@ -353,6 +391,20 @@ public class NPCInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+        }
+    }
+
+
+
+    private void SetQuestHasCheckpoints(Quest activeQuest)
+    {
+        if(currentActiveQuest.questInfo.checkpoints.Count > 0)
+        {
+            currentActiveQuest.questInfo.hasCheckpoints = true;
+        }
+        else
+        {
+            currentActiveQuest.questInfo.hasCheckpoints = false;
         }
     }
 }

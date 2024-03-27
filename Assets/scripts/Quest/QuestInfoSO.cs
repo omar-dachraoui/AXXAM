@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
  
-[CreateAssetMenu(fileName ="Data", menuName = "ScriptableObjects/QuestInfo", order = 1)]
+[CreateAssetMenu(fileName ="Data", menuName = "ScriptableObjects/QuestInfoSO", order = 1)]
  
-public class QuestInfo : ScriptableObject
+public class QuestInfoSO : ScriptableObject
 {
     [TextArea(5,10)]
     public List<string> initialDialog;
@@ -39,6 +39,10 @@ public class QuestInfo : ScriptableObject
  
     public string secondRequirmentItem;
     public int secondRequirementAmount; 
+
+
+    public bool hasCheckpoints ; 
+    public List<CheckpointSO> checkpoints ;
 
     
 }
