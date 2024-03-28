@@ -6,10 +6,7 @@ using Text = TMPro.TextMeshProUGUI;
 
 public class CraftingSystem : MonoBehaviour
 {
-    // UI Text elements 
-    public Text stone;
-    public Text stick;
-    public Text log;
+    
 
     // UI Screens
     public GameObject CraftingScreeenUI;
@@ -223,9 +220,7 @@ public class CraftingSystem : MonoBehaviour
             }
         }
 
-        // Update UI text for Axe requirements
-        stone.text = "3Stone[" + stone_count + "]";
-        stick.text = "3Stick[" + stick_count + "]";
+        
 
         // Set Axe requirements text
         AxeReq1.text = "3Stone[" + stone_count + "]";
@@ -249,7 +244,7 @@ public class CraftingSystem : MonoBehaviour
 
         // Set plank requirements text
         PlankReq1.text = "1log[" + log_count + "]";
-        log.text = "1log[" + log_count + "]";
+        
        
 
         // Enable or disable plank crafting button based on requirements
