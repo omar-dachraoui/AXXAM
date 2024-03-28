@@ -115,13 +115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrashable: 1
-  thisName: plank
-  thisDescription: wooden planks
-  thisFunctionality: used to craftt
-  isConsumable: 0
-  healthEffect: 0
-  caloriesEffect: 0
-  hydrationEffect: 0
+  thisName: Apple
+  thisDescription: Fruit you can eat
+  thisFunctionality: you can consume to increase player stats
+  isConsumable: 1
+  healthEffect: 10
+  caloriesEffect: 100
+  hydrationEffect: 2
   isEquipment: 0
   isInsideQuickSlot: 0
   isselected: 0
