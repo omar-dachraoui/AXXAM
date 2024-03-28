@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Checkpoint_1
   m_EditorClassIdentifier: 
   relatedQuestName: Baney
-  isCompleted: 0
+  isCompleted: 1

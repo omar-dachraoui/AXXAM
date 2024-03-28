@@ -20,6 +20,7 @@ public class QuestManager : MonoBehaviour
             
         }
         
+        
     }
     
     public List<Quest> allActiveQuests ;
@@ -36,11 +37,23 @@ public class QuestManager : MonoBehaviour
     public List<Quest> allTrackedQuests;
 
 
+    [SerializeField] private InteractableObject interactableObject  ;
+    [SerializeField] private CheckpointSO checkpointSO;
 
 
+    private void Start()
+    {
+        if(checkpointSO != null)
+        {
+            checkpointSO.isCompleted = false;
+        }
+        
+    }
 
-
-
+    private void InteractableObject_OnRuneDetected(object sender, EventArgs e)
+    {
+        checkpointSO.isCompleted = true;
+    }
 
     public void AddTrackedQuest(Quest quest)
     {
@@ -149,6 +162,9 @@ public class QuestManager : MonoBehaviour
             {
                 var existingText = tRow.questRequirement.text;
                 tRow.questRequirement.text = PrintCheckpoints(trackedQuest,existingText);
+                interactableObject.OnRuneDetected += InteractableObject_OnRuneDetected;
+               
+
             }
  
  
