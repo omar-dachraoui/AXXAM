@@ -14,6 +14,8 @@ public class CraftingSystem : MonoBehaviour
 
     // Inventory item list
     public List<string> InventoryItemList = new List<string>();
+    // Blueprint class to store information about the crafting recipe
+    [SerializeField] List<BlueprintSO> blueprintsList = new List<BlueprintSO>();
 
     // Category Buttons
     Button toolsBTN,survivalBTN,refineBTN;
@@ -27,9 +29,7 @@ public class CraftingSystem : MonoBehaviour
     // Flag indicating if the crafting screen is open
     public bool isOpen;
 
-    // Blueprint for crafting an Axe
-    public Blueprint AxeBLP = new Blueprint("Axe",1, 2, "Stone", 3, "Stick", 3);
-    public Blueprint PlankBLP = new Blueprint("Plank", 2,1,  "log", 1,"", 0);
+    
     // Singleton instance
     public static CraftingSystem Instance { get; set; }
 
@@ -71,7 +71,7 @@ public class CraftingSystem : MonoBehaviour
         AxeReq2 = ToolScreenUI.transform.Find("Axe").transform.Find("req2").GetComponent<Text>();
 
         CraftAxeBTN = ToolScreenUI.transform.Find("Axe").transform.Find("Button").GetComponent<Button>();
-        CraftAxeBTN.onClick.AddListener(delegate { CraftAnyItem(AxeBLP); });
+        CraftAxeBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[0]); });
 
 
         // Setup plank crafting UI elements
@@ -79,11 +79,12 @@ public class CraftingSystem : MonoBehaviour
         
 
         craftplankBTN = refineScreenUI.transform.Find("plank").transform.Find("Button").GetComponent<Button>();
-        craftplankBTN.onClick.AddListener(delegate { CraftAnyItem(PlankBLP); });
+        craftplankBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[1]); });
+        
     }
 
     // Function to craft any item using the provided blueprint
-    private void CraftAnyItem(Blueprint blueprintToCraft)
+    private void CraftAnyItem(BlueprintSO blueprintToCraft)
     {
         
             //Sound_Manager.Instance.PlaySound(Sound_Manager.Instance.craftSound);

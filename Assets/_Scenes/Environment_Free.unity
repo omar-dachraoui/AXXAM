@@ -9189,14 +9189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cf0551acb082e418e93b81182205ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stone: {fileID: 1119341785}
-  stick: {fileID: 449005677}
-  log: {fileID: 668564653}
   CraftingScreeenUI: {fileID: 954254578}
   ToolScreenUI: {fileID: 1249638642}
   survivalScreenUI: {fileID: 366380980}
   refineScreenUI: {fileID: 2100056395}
   InventoryItemList: []
+  blueprintsList:
+  - {fileID: 11400000, guid: 3912b72718668b94dbae2ca949b6cc05, type: 2}
+  - {fileID: 11400000, guid: 4996393642517964ba418a7f186e035a, type: 2}
   isOpen: 0
 --- !u!1 &1025652493
 GameObject:

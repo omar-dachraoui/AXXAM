@@ -82,6 +82,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 // Setting this specific game object to be the item we want to destroy later
                 itemPendingConsumption = gameObject;
                 consumingFunction(healthEffect, caloriesEffect, hydrationEffect);
+                Sound_Manager.Instance.PlaySound(Sound_Manager.Instance.chopsound);
             }
             // Equipment item handling
             if (isEquipment && isInsideQuickSlot == false && EquipSystem.Instance.CheckIfFull() == false)

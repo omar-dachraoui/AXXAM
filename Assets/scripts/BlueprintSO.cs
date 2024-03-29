@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blueprint 
+
+// Blueprint class to store information about the crafting recipe
+[CreateAssetMenu(fileName ="Data", menuName = "ScriptableObjects/BlueprintSO", order = 1)]
+public class BlueprintSO : ScriptableObject
 {
     // Fields to store information about the blueprint
     public string itemName;     // Name of the crafted item
@@ -15,7 +18,7 @@ public class Blueprint
     public int numberofproducedItems;           // Number of items produced
 
     // Constructor to initialize the blueprint with specified values
-    public Blueprint(string name,int producedItems, int reqNum, string R1, int R1num, string R2, int R2num)
+    public BlueprintSO(string name,int producedItems, int reqNum, string R1, int R1num, string R2, int R2num)
     {
         itemName = name;             // Set the item name
         numOfRequirement = reqNum; 
