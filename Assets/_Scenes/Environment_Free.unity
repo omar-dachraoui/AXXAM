@@ -627,7 +627,6 @@ MonoBehaviour:
   playerinrange: 0
   ItemName: Rune
   rune: 1
-  audioSource: {fileID: 0}
 --- !u!65 &81069964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4234,6 +4233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction_Info_UI: {fileID: 973755137}
+  interaction_text: {fileID: 0}
   ontarget: 0
   SelectedObject: {fileID: 0}
   SlectedTree: {fileID: 0}
@@ -6276,7 +6276,6 @@ MonoBehaviour:
   playerinrange: 0
   ItemName: Rune
   rune: 1
-  audioSource: {fileID: 8975058472661237069}
 --- !u!65 &610940807
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14786,7 +14785,6 @@ MonoBehaviour:
   playerinrange: 0
   ItemName: Rune
   rune: 1
-  audioSource: {fileID: 0}
 --- !u!65 &1470700432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17043,7 +17041,7 @@ PrefabInstance:
     - target: {fileID: 7205422801707005016, guid: 97f955739b41e4945aaf76f2e4e15ccd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.36586
+      value: -31.78
       objectReference: {fileID: 0}
     - target: {fileID: 7205422801707005016, guid: 97f955739b41e4945aaf76f2e4e15ccd,
         type: 3}
@@ -19516,12 +19514,12 @@ PrefabInstance:
     - target: {fileID: 6565562302895945484, guid: 972e52bcf33680d429a9c76499cf898c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18
+      value: 70.83
       objectReference: {fileID: 0}
     - target: {fileID: 6565562302895945484, guid: 972e52bcf33680d429a9c76499cf898c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 2.967
       objectReference: {fileID: 0}
     - target: {fileID: 6565562302895945484, guid: 972e52bcf33680d429a9c76499cf898c,
         type: 3}
@@ -21111,7 +21109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1848920932892291874
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21667,7 +21665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &7004474623769824700
 MeshFilter:
   m_ObjectHideFlags: 0

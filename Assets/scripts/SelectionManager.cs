@@ -6,11 +6,11 @@ using UnityEngine.UI;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.CompilerServices;
 
-public class SelectionManager : MonoBehaviour, IobjectInteractable
+public class SelectionManager : MonoBehaviour
 {
     // Reference to the UI element for displaying interaction information
     public GameObject interaction_Info_UI;
-    Text interaction_text;
+    public Text interaction_text;
     public bool ontarget;
     public GameObject SelectedObject;
     public GameObject SlectedTree;
@@ -57,86 +57,37 @@ public class SelectionManager : MonoBehaviour, IobjectInteractable
         // Check if the ray hits any object in the scene
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,out RaycastHit hit,maxDistance,pickUpLayerMask))
         {
+
+            
             
             // Get the transform of the object hit by the ray
             var selectionTransform = hit.transform;
+
             InteractableObject HasInetractableScript = selectionTransform.GetComponent<InteractableObject>();
+
+            IobjectInteractable Has = selectionTransform.GetComponent<IobjectInteractable>();
+
             ChoppableTree1 choppableTree = selectionTransform.GetComponent<ChoppableTree1>();
+
             NPCInteraction nPCInteraction = selectionTransform.GetComponent<NPCInteraction>();
+              
 
-
-
-            if(nPCInteraction && nPCInteraction.playerInRange)
+            if(Has != null)
             {
-                interaction_text.text = "Press (T) to Talk";
-                interaction_Info_UI.SetActive(true);
-                if(Input.GetKeyDown(KeyCode.T) && !nPCInteraction.isTalkingWithPlayer)
-                {
-                    nPCInteraction.StartConversation();
-                }
-            }
-            else
-            {
-                interaction_text.text = "";
-                interaction_Info_UI.SetActive(false);
-            }
-
-
-
-
-
-            // Check if the object is a choppable tree and player is in range
-            if (choppableTree && choppableTree.playerInRange)
-            {
-                choppableTree.canBeChopped = true;
-                SlectedTree = choppableTree.gameObject;
-                ChopHolder.gameObject.SetActive(true);
-            }
-            else
-            {
-                // Reset the selected tree and hide chop holder if no choppable tree is found
-                if (SlectedTree != null)
-                {
-                    SlectedTree.gameObject.GetComponent<ChoppableTree1>().canBeChopped = false;
-                    SlectedTree = null;
-                    ChopHolder.gameObject.SetActive(false);
-                }
-            }
-
-            // Check if the object has an InteractableObject component
-            if (HasInetractableScript && HasInetractableScript.playerinrange)
-            {
-                ontarget = true;
-                SelectedObject = HasInetractableScript.gameObject;
-                // Display the item name from the InteractableObject component
-                interaction_text.text = HasInetractableScript.GetItemName();
-
-                // Show the interaction UI
-                interaction_Info_UI.SetActive(true);
-
-                // Check if the object is pickable and adjust the icons accordingly
-                if (HasInetractableScript.CompareTag("pickable"))
-                {
-                    
-                    HandIcon.gameObject.SetActive(true);
-                    HandIsVisible = true;
-                }
-                else
-                {
-                    HandIcon.gameObject.SetActive(false);
-                    
-                    HandIsVisible = false;
-                }
-            }
-            else
-            {
-                ontarget = false;
-                // Hide the interaction UI if no InteractableObject component is found
-                //interaction_Info_UI.SetActive(false);
-                HandIcon.gameObject.SetActive(false);
+               Has.SetObjectRelatedUI();
                 
-                HandIsVisible = false;
+
+
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Has.Interact();
+                }
             }
+            
+
+
+            
+           
         }
         else
         {
@@ -146,6 +97,7 @@ public class SelectionManager : MonoBehaviour, IobjectInteractable
             HandIcon.gameObject.SetActive(false);
             
             HandIsVisible = false;
+            ChopHolder.gameObject.SetActive(false);
         }
     }
 
@@ -163,11 +115,9 @@ public class SelectionManager : MonoBehaviour, IobjectInteractable
         HandIcon.enabled = false;
         
         interaction_Info_UI.SetActive(false);
+        
         SelectedObject = null;
     }
 
-    public void Interact()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

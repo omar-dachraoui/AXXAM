@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider))]
-public class ChoppableTree1 : MonoBehaviour
+public class ChoppableTree1 : MonoBehaviour,IobjectInteractable
 {
     // Flags indicating whether the player is in range and if the tree can be chopped
     public bool playerInRange;
@@ -81,7 +81,7 @@ public class ChoppableTree1 : MonoBehaviour
 
         // Instantiate a broken tree
         GameObject brokenTree = Instantiate(Resources.Load<GameObject>("ChoppedTree"),
-            new Vector3(treePosition.x, treePosition.y + 6, treePosition.z), Quaternion.Euler(0, 0, 0));
+        new Vector3(treePosition.x, treePosition.y + 6, treePosition.z), Quaternion.Euler(0, 0, 0));
     }
 
     // Update function
@@ -93,5 +93,32 @@ public class ChoppableTree1 : MonoBehaviour
             GlobalState.Instance.resourceHealth = treeHealth;
             GlobalState.Instance.resourceMaxHealth = treeMaxHealth;
         }
+    }
+
+    public void Interact()
+    {
+       
+
+    }
+
+    public void SetObjectRelatedUI()
+    {
+        // Check if the object is a choppable tree and player is in range
+            if (playerInRange)
+            {
+                canBeChopped = true;
+                SelectionManager.Instance.SlectedTree = this.gameObject;
+                SelectionManager.Instance.ChopHolder.gameObject.SetActive(true);
+            }
+            else
+            {
+                // Reset the selected tree and hide chop holder if no choppable tree is found
+                if (SelectionManager.Instance.SlectedTree != null)
+                {
+                    SelectionManager.Instance.SlectedTree.gameObject.GetComponent<ChoppableTree1>().canBeChopped = false;
+                    SelectionManager.Instance.SlectedTree = null;
+                    SelectionManager.Instance.ChopHolder.gameObject.SetActive(false);
+                }
+            }
     }
 }

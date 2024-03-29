@@ -6,4 +6,5 @@ public interface IobjectInteractable
 
 {
     void Interact();
+    void SetObjectRelatedUI();
 }

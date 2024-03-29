@@ -6,7 +6,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCInteraction : MonoBehaviour
+public class NPCInteraction : MonoBehaviour, IobjectInteractable
 {
     public bool playerInRange;
     public bool isTalkingWithPlayer;
@@ -33,6 +33,10 @@ public class NPCInteraction : MonoBehaviour
         optionButton2 = DialogueSystem.Instance.Option2BTN;
         optionButtonText2 = DialogueSystem.Instance.Option2BTN.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
  
+    }
+    private void Update()
+    {
+        Interact();
     }
  
  
@@ -406,5 +410,30 @@ public class NPCInteraction : MonoBehaviour
         {
             currentActiveQuest.questInfo.hasCheckpoints = false;
         }
+    }
+
+    public void Interact()
+    {
+        //Check if the object is an NPC and player is in range
+
+            if(playerInRange)//nPCInteraction && nPCInteraction.playerInRange)
+            {
+                SelectionManager.Instance.interaction_text.text = "Press (T) to Talk";
+                SelectionManager.Instance.interaction_Info_UI.SetActive(true);
+                if(Input.GetKeyDown(KeyCode.T) && !isTalkingWithPlayer)
+                {
+                    StartConversation();
+                }
+            }
+            else
+            {
+                SelectionManager.Instance.interaction_text.text = "";
+                SelectionManager.Instance.interaction_Info_UI.SetActive(false);
+            }
+    }
+
+    public void SetObjectRelatedUI()
+    {
+        
     }
 }

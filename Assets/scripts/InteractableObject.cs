@@ -15,7 +15,7 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
     
     public event EventHandler OnRuneDetected;
 
-    [SerializeField]AudioSource audioSource;
+    AudioSource audioSource;
 
     // Method to get the name of the item
     public string GetItemName()
@@ -33,28 +33,17 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
         // Check if the player presses the 'E' key, is in range, the object is targeted, and it's the selected object
         if (Input.GetKeyDown(KeyCode.E) && playerinrange && SelectionManager.Instance.ontarget && SelectionManager.Instance.SelectedObject == gameObject)
         {
-            if(rune)
-            {
-                if(audioSource != null)
-                {
-                    audioSource.Play();
-                    OnRuneDetected?.Invoke(this, EventArgs.Empty);
-                }
-            }
-            else
-            {
-               // Check if the inventory is not full
-                if (InventorySystem.Instance.CheckSlotAvailable(1))
-                {
-                    // Add the item to the inventory and destroy the interactable object
-                 InventorySystem.Instance.AddToInventory(ItemName);
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    Debug.Log("Inventory is full.");
-                }
-            }
+            Interact();
+            
+        }
+
+        
+    }
+    private void Start()
+    {
+        if(rune)
+        {
+            audioSource = GetComponent<AudioSource>();
         }
     }
 
@@ -83,6 +72,71 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
 
     public void Interact()
     {
-        throw new NotImplementedException();
+        if(rune)
+            {
+                if(audioSource != null)
+                {
+                    audioSource.Play();
+                    OnRuneDetected?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            else
+            {
+               // Check if the inventory is not full
+                if (InventorySystem.Instance.CheckSlotAvailable(1))
+                {
+                    // Add the item to the inventory and destroy the interactable object
+                    InventorySystem.Instance.AddToInventory(ItemName);
+                    Destroy(gameObject);
+                    SelectionManager.Instance.HandIcon.gameObject.SetActive(false);
+                    SelectionManager.Instance.HandIsVisible = false;
+                    SelectionManager.Instance.interaction_Info_UI.SetActive(false);
+                }
+                else
+                {
+                    Debug.Log("Inventory is full.");
+                }
+            }
+         
+
+            
+    }
+
+    public void SetObjectRelatedUI()
+    {
+        // Check if the object has an InteractableObject component
+            if (playerinrange)
+            {
+                SelectionManager.Instance.ontarget = true;
+                SelectionManager.Instance.SelectedObject = this.gameObject;
+                // Display the item name from the InteractableObject component
+                SelectionManager.Instance.interaction_text.text = GetItemName();
+
+                // Show the interaction UI
+                SelectionManager.Instance.interaction_Info_UI.SetActive(true);
+                
+                // Check if the object is pickable and adjust the icons accordingly
+                if (CompareTag("pickable"))
+                {
+                    
+                    SelectionManager.Instance.HandIcon.gameObject.SetActive(true);
+                    SelectionManager.Instance.HandIsVisible = true;
+                }
+                else
+                {
+                    SelectionManager.Instance.HandIcon.gameObject.SetActive(false);
+                    
+                    SelectionManager.Instance.HandIsVisible = false;
+                }
+            }
+            else
+            {
+                SelectionManager.Instance.ontarget = false;
+                // Hide the interaction UI if no InteractableObject component is found
+                //interaction_Info_UI.SetActive(false);
+                SelectionManager.Instance.HandIcon.gameObject.SetActive(false);
+                
+                SelectionManager.Instance.HandIsVisible = false;
+            }
     }
 }
