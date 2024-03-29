@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrashable: 1
-  thisName: 'hajra '
-  thisDescription: sajra
-  thisFunctionality: tajra
+  thisName: Stick
+  thisDescription: "raw small \tpiece of wood"
+  thisFunctionality: can be used to craft items
   isConsumable: 0
   healthEffect: 0
   caloriesEffect: 0

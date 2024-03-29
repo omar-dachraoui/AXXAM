@@ -114,14 +114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2d258802f732040b2e5c1ed48b1f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
-  thisName: Rock
+  isTrashable: 1
+  thisName: Stone
   thisDescription: solid objectt
   thisFunctionality: used to craft tools or building
-  isConsumable: 1
-  healthEffect: 40
-  caloriesEffect: 100
-  hydrationEffect: 4
-  isEquipment: 1
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
+  isEquipment: 0
   isInsideQuickSlot: 0
   isselected: 0

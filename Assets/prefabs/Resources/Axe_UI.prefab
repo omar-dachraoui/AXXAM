@@ -115,9 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrashable: 1
-  thisName: 'hajra '
-  thisDescription: sajra
-  thisFunctionality: tajra
+  thisName: Axe
+  thisDescription: a tool to farm wood and Hunt Rabbits
+  thisFunctionality: 'can be crafted in inventory to chop wood and hunt animals
+
+'
   isConsumable: 0
   healthEffect: 0
   caloriesEffect: 0

@@ -116,8 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrashable: 1
   thisName: HealthPotion
-  thisDescription: HP
-  thisFunctionality: 'Magical Item used to Restore full HP when consumed '
+  thisDescription: magical item
+  thisFunctionality: "Magical Item used to Restore full HP when consumed \ncan be
+    crafted "
   isConsumable: 1
   healthEffect: 100
   caloriesEffect: 5

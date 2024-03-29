@@ -16,7 +16,9 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Text itemInfoUI_itemFunctionality;
 
     // Item details
-    public string thisName, thisDescription, thisFunctionality;
+    public string thisName;
+    [TextArea(1, 5)]
+    public string thisDescription, thisFunctionality;
 
     // Consumption properties
     private GameObject itemPendingConsumption;

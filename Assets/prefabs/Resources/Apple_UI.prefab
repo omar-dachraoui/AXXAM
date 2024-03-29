@@ -117,7 +117,7 @@ MonoBehaviour:
   isTrashable: 1
   thisName: Apple
   thisDescription: Fruit you can eat
-  thisFunctionality: you can consume to increase player stats
+  thisFunctionality: you can consume to increase Stamina,HP and Hydration
   isConsumable: 1
   healthEffect: 10
   caloriesEffect: 100
