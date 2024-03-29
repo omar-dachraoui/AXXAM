@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   itemName: Plank
-  Req1: log
-  Req2: 
-  Req1amount: 1
-  Req2amount: 0
-  numOfRequirement: 1
   numberofproducedItems: 2
+  itemIndex: 0
+  numOfRequirement: 1
+  ReqList:
+  - log
+  ReqAmountList: 01000000

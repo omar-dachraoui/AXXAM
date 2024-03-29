@@ -7,25 +7,40 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Data", menuName = "ScriptableObjects/BlueprintSO", order = 1)]
 public class BlueprintSO : ScriptableObject
 {
-    // Fields to store information about the blueprint
-    public string itemName;     // Name of the crafted item
-    public string Req1;         // Name of the first requirement
-    public string Req2;         // Name of the second requirement
+    [Header("Blueprint Information")]
 
-    public int Req1amount;      // Amount required of the first requirement
-    public int Req2amount;      // Amount required of the second requirement
-    public int numOfRequirement; // Total number of requirements
+
+    
+    // Fields to store information about the blueprint
+    [Tooltip("Name of the crafted item")]
+    public string itemName;     // Name of the crafted item
+
+    [Tooltip("number of produced item after crafting the")]
     public int numberofproducedItems;           // Number of items produced
 
-    // Constructor to initialize the blueprint with specified values
-    public BlueprintSO(string name,int producedItems, int reqNum, string R1, int R1num, string R2, int R2num)
+    [Tooltip("Index of the item in the crafting list")]
+    public int itemIndex;       // Index of the item in the inventory
+
+    [Tooltip("Total number of requirements")]
+    public int numOfRequirement; // Total number of requirements
+    
+    [Tooltip("List of requirements ")]
+    public List<string> ReqList  ; // List of requirements
+
+    
+    [Tooltip("List of requirement amounts")]
+    public List<int> ReqAmountList; // List of requirement amounts
+
+
+
+    private void Start()
     {
-        itemName = name;             // Set the item name
-        numOfRequirement = reqNum; 
-        numberofproducedItems = producedItems;   // Set the total number of requirements
-        Req1 = R1;                   // Set the name of the first requirement
-        Req2 = R2;                   // Set the name of the second requirement
-        Req1amount = R1num;          // Set the amount required for the first requirement
-        Req2amount = R2num;          // Set the amount required for the second requirement
+        ReqList = new List<string>(numOfRequirement);
+        ReqAmountList = new List<int>(numOfRequirement);
     }
+    
+    
+
+    
+    
 }

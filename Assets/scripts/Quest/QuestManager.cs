@@ -94,6 +94,7 @@ public class QuestManager : MonoBehaviour
 
     private void Update()
     {
+        RefreshedTrackedQuestList();
         // Check for input to toggle the inventory screen
         if (Input.GetKeyDown(KeyCode.Q) && !isQuestMenuOpen)
         {

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46be84e59ffdb1847a3040990d59b91d, type: 3}
-  m_Name: Axe
+  m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  itemName: Axe
+  itemName: HealthPotion
   numberofproducedItems: 1
   itemIndex: 0
-  numOfRequirement: 2
+  numOfRequirement: 3
   ReqList:
   - Stone
   - Stick
-  ReqAmountList: 0300000003000000
+  - Apple
+  ReqAmountList: 010000000100000001000000

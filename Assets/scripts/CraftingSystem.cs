@@ -21,10 +21,10 @@ public class CraftingSystem : MonoBehaviour
     Button toolsBTN,survivalBTN,refineBTN;
 
     // Craft Buttons
-    Button CraftAxeBTN,craftplankBTN;
+    Button CraftAxeBTN,craftplankBTN,craftHPBTN;
 
     // Requirement Text for Axe
-   Text AxeReq1, AxeReq2,PlankReq1;
+   Text AxeReq1, AxeReq2,PlankReq1,HPReq1,HPReq2,HPReq3;
 
     // Flag indicating if the crafting screen is open
     public bool isOpen;
@@ -80,6 +80,15 @@ public class CraftingSystem : MonoBehaviour
 
         craftplankBTN = refineScreenUI.transform.Find("plank").transform.Find("Button").GetComponent<Button>();
         craftplankBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[1]); });
+
+          // Setup HealthPotion crafting UI elements
+        HPReq1 = survivalScreenUI.transform.Find("HealthPotion").transform.Find("req1").GetComponent<Text>();
+        HPReq2 = survivalScreenUI.transform.Find("HealthPotion").transform.Find("req2").GetComponent<Text>();
+        HPReq3 = survivalScreenUI.transform.Find("HealthPotion").transform.Find("req3").GetComponent<Text>();
+
+        craftHPBTN = survivalScreenUI.transform.Find("HealthPotion").transform.Find("Button").GetComponent<Button>();
+        craftHPBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[2]); });
+
         
     }
 
@@ -96,31 +105,26 @@ public class CraftingSystem : MonoBehaviour
             InventorySystem.Instance.AddToInventory(blueprintToCraft.itemName);
         }
 
-
-
-
-
-
-
-
-       
-
-        // Remove resources from inventory based on the blueprint requirements
-        if (blueprintToCraft.numOfRequirement == 1)
-        {
-            InventorySystem.Instance.RemoveItem(blueprintToCraft.Req1, blueprintToCraft.Req1amount);
-        }
-        else if (blueprintToCraft.numOfRequirement == 2)
-        {
-            InventorySystem.Instance.RemoveItem(blueprintToCraft.Req1, blueprintToCraft.Req1amount);
-            InventorySystem.Instance.RemoveItem(blueprintToCraft.Req2, blueprintToCraft.Req2amount);
-        }
+        //Remove resources from inventory based on the blueprint requirements
+        RemoveRequirements(blueprintToCraft, blueprintToCraft.numOfRequirement);
 
         //Refresh inventory list and UI
         
        
         StartCoroutine(calculate());
         RefrechNeededItem();
+        
+    }
+
+
+
+    private void RemoveRequirements(BlueprintSO blueprintToRemove,int number )
+    {
+        for (var i = 0; i < number; i++)
+        {
+            // remove item from inventory
+           InventorySystem.Instance.RemoveItem(blueprintToRemove.ReqList[i], blueprintToRemove.ReqAmountList[i]);
+        }
         
     }
 
@@ -203,6 +207,7 @@ public class CraftingSystem : MonoBehaviour
         int stone_count = 0;
         int stick_count = 0;
         int log_count = 0;
+        int Apple_count = 0;
         InventoryItemList = InventorySystem.Instance.itemList;
 
         foreach (string itemName in InventoryItemList)
@@ -217,6 +222,9 @@ public class CraftingSystem : MonoBehaviour
                     break;
                 case "log":
                     log_count+=1;
+                break;
+                case "Apple":
+                    Apple_count+=1;
                 break;
             }
         }
@@ -235,6 +243,22 @@ public class CraftingSystem : MonoBehaviour
         else
         {
             CraftAxeBTN.gameObject.SetActive(false);
+        }
+
+
+        // Set Axe requirements text
+        HPReq1.text = "1Stone[" + stone_count + "]";
+        HPReq2.text = "1Stick[" + stick_count + "]";
+        HPReq3.text = "1Apple[" + Apple_count + "]";
+
+        // Enable or disable Axe crafting button based on requirements
+        if (stone_count >= 1 && stick_count >= 1 && Apple_count>= 1 && InventorySystem.Instance.CheckSlotAvailable(1))
+        {
+            craftHPBTN.gameObject.SetActive(true);
+        }
+        else
+        {
+            craftHPBTN.gameObject.SetActive(false);
         }
 
 
