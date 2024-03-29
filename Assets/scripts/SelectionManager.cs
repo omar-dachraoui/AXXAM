@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.CompilerServices;
 
-public class SelectionManager : MonoBehaviour
+public class SelectionManager : MonoBehaviour, IobjectInteractable
 {
     // Reference to the UI element for displaying interaction information
     public GameObject interaction_Info_UI;
@@ -21,7 +21,7 @@ public class SelectionManager : MonoBehaviour
     public static SelectionManager Instance { get; set; }
 
     // Reference to the center dot and hand icons
-    public Image centerDotIcon;
+    
     public Image HandIcon;
 
     // Flag to track if the hand icon is visible
@@ -60,7 +60,7 @@ public class SelectionManager : MonoBehaviour
             
             // Get the transform of the object hit by the ray
             var selectionTransform = hit.transform;
-            InteractableObject ourinteractable = selectionTransform.GetComponent<InteractableObject>();
+            InteractableObject HasInetractableScript = selectionTransform.GetComponent<InteractableObject>();
             ChoppableTree1 choppableTree = selectionTransform.GetComponent<ChoppableTree1>();
             NPCInteraction nPCInteraction = selectionTransform.GetComponent<NPCInteraction>();
 
@@ -104,27 +104,27 @@ public class SelectionManager : MonoBehaviour
             }
 
             // Check if the object has an InteractableObject component
-            if (ourinteractable && ourinteractable.playerinrange)
+            if (HasInetractableScript && HasInetractableScript.playerinrange)
             {
                 ontarget = true;
-                SelectedObject = ourinteractable.gameObject;
+                SelectedObject = HasInetractableScript.gameObject;
                 // Display the item name from the InteractableObject component
-                interaction_text.text = ourinteractable.GetItemName();
+                interaction_text.text = HasInetractableScript.GetItemName();
 
                 // Show the interaction UI
                 interaction_Info_UI.SetActive(true);
 
                 // Check if the object is pickable and adjust the icons accordingly
-                if (ourinteractable.CompareTag("pickable"))
+                if (HasInetractableScript.CompareTag("pickable"))
                 {
-                    centerDotIcon.gameObject.SetActive(false);
+                    
                     HandIcon.gameObject.SetActive(true);
                     HandIsVisible = true;
                 }
                 else
                 {
                     HandIcon.gameObject.SetActive(false);
-                    centerDotIcon.gameObject.SetActive(true);
+                    
                     HandIsVisible = false;
                 }
             }
@@ -134,7 +134,7 @@ public class SelectionManager : MonoBehaviour
                 // Hide the interaction UI if no InteractableObject component is found
                 //interaction_Info_UI.SetActive(false);
                 HandIcon.gameObject.SetActive(false);
-                centerDotIcon.gameObject.SetActive(true);
+                
                 HandIsVisible = false;
             }
         }
@@ -144,7 +144,7 @@ public class SelectionManager : MonoBehaviour
             // Hide the interaction UI if no object is hit by the ray
             interaction_Info_UI.SetActive(false);
             HandIcon.gameObject.SetActive(false);
-            centerDotIcon.gameObject.SetActive(true);
+            
             HandIsVisible = false;
         }
     }
@@ -153,7 +153,7 @@ public class SelectionManager : MonoBehaviour
     public void enableselction()
     {
         HandIcon.enabled = true;
-        centerDotIcon.enabled = true;
+        
         interaction_Info_UI.SetActive(true);
     }
 
@@ -161,8 +161,13 @@ public class SelectionManager : MonoBehaviour
     public void disableselction()
     {
         HandIcon.enabled = false;
-        centerDotIcon.enabled = false;
+        
         interaction_Info_UI.SetActive(false);
         SelectedObject = null;
+    }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 }

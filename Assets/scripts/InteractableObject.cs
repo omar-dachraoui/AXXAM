@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObject : MonoBehaviour,IobjectInteractable
 {
     // Flag to determine if the player is in range
     public bool playerinrange;
@@ -79,5 +79,10 @@ public class InteractableObject : MonoBehaviour
             // Set player in range to false
             playerinrange = false;
         }
+    }
+
+    public void Interact()
+    {
+        throw new NotImplementedException();
     }
 }
