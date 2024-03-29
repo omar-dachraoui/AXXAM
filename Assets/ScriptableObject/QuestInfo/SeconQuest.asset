@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285ff6d12428c49408c9cee38c3f64c0, type: 3}
+  m_Name: SeconQuest
+  m_EditorClassIdentifier: 
+  initialDialog:
+  - Ah, DACH, it's good to see you return once more. Your presence brings hope to
+    our village
+  - What new journey do you seek? Speak, and the path shall reveal itself.
+  - Your return reminds me of the wisdom gained from our previous quest. It's now
+    apparent that our village's plight stems from a divine disagreement. Once again,
+    we seek your aid in navigating this divine turmoil.
+  - 'Within our library lies a tome holding the ancient dance of our Amazigh ancestors
+    a treasure of our heritage. Your mission: retrieve this sacred book and learn
+    its dance. Will you embark on this quest, DACH?'
+  acceptOption: I accept, Elder. Preserving our heritage is a duty I gladly undertake.
+    I will retrieve the sacred book and learn the dance of our ancestors.
+  acceptAnswer: DACH, your willingness to embrace our heritage honors us all. As
+    you embark on this quest, remember that within the steps of our ancestors lies
+    not only tradition but also strength.
+  declineOption: ' Elder my current focus lies elsewhere. Perhaps another time I
+    can assist with this task'
+  declineAnswer: I understand, DACH. Your path may lead you elsewhere for now. Should
+    you ever reconsider or find yourself in need of guidance, know that our village's
+    door is always open to you
+  comebackAfterDecline: Ah, DACH, it's good to see you return. Your presence alone
+    brings warmth to our village. Have you had a change of heart? If so, know that
+    your willingness to assist us is always appreciated.
+  comebackInProgress: I see your journey is ongoing. Have you yet uncovered the secrets
+    of our ancestors' dance? The village eagerly awaits your mastery of this sacred
+    art.
+  comebackCompleted: your return brings joy! With the dance of our ancestors in your
+    grasp, our heritage is preserved. Your efforts are invaluable. May our traditions
+    continue to flourish under your guidance.
+  finalWords: while your accomplishment is admirable, our village still faces challenges
+    ahead. When time permits, your aid would be invaluable. Your commitment to our
+    community is commendable, and your assistance will always be welcomed.
+  coinReward: 20
+  rewardItem1: 
+  rewardItem1Amount: 0
+  rewardItem2: 
+  rewardItem2Amount: 0
+  firstRequirmentItem: 
+  firstRequirementAmount: 0
+  secondRequirmentItem: 
+  secondRequirementAmount: 0
+  hasCheckpoints: 0
+  checkpoints: []

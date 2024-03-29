@@ -13,29 +13,40 @@ MonoBehaviour:
   m_Name: First_NPC_Quest_1
   m_EditorClassIdentifier: 
   initialDialog:
-  - salamouu 3alaykomm ezei
-  - 'asmmaaa anaa ftourrr kessah lfoukk tji '
-  - famaa kosksii bel 3aloushh maah shwaya rayebb w gezgez
-  - 'ayaa tatla3 tekel w baedd nfarghouuu kamyounn l yajour ?
-
-'
-  acceptOption: 'mrigll madem fama meklaa nkoulsh nn '
-  acceptAnswer: dimaa tejrii ala kerchek
-  declineOption: aaa dsl najemeshh andi l fata9
-  declineAnswer: dimaa tekthebb ty lberah barka ritek t7amel fel bnet ay baraa mriguel
-  comebackAfterDecline: aa chnyaa tharbek echar rjaet
-  comebackInProgress: yyy kamell l beki
-  comebackCompleted: 'hayaa sahitk lfeyda rbehna menek haja '
-  finalWords: tw n3oud nkalmek ken fama haja okhra
+  - It's good to see you return, DACH. You've been sorely missed.
+  - I sense a heaviness in your gaze, DACH. Have you noticed the tension that grips
+    our village?
+  - May the wisdom of our ancestors guide us through this darkness
+  - I fear something sinister may be afoot. Our villagers have been acting strangely,
+    distant even. Would you be willing to investigate? Your keen eyes and swift feet
+    may uncover the truth hidden in the shadows
+  acceptOption: Of course, Elder. I will do whatever I can to help our village.
+  acceptAnswer: Thank you, DACH. Your courage honors our village. May the spirits
+    guide you in uncovering the truth.
+  declineOption: I appreciate your concern Elder, but I'm afraid I must attend to
+    other matters first
+  declineAnswer: I understand,  Your duties may lie elsewhere for now. Should you
+    find yourself with the time and inclination to aid our village,
+  comebackAfterDecline: Hello Again ,I see you have returned. Is your heart now inclined
+    to aid our village in its time of need?
+  comebackInProgress: 'Welcome back. It seems your journey is not yet complete. The
+    village remains shrouded in uncertainty, eagerly awaiting the resolution of this
+    mystery. '
+  comebackCompleted: Welcome back, DACH. Your bravery has restored clarity to our
+    village. We are deeply grateful for your efforts. May the spirits continue to
+    guide you on your journey.
+  finalWords: 'While the mystery remains, your efforts have brought us closer to
+    understanding. Should you wish to aid us further, know that your assistance is
+    always welcome. Until then, may the spirits watch over you on your travels '
   coinReward: 3
-  rewardItem1: Stone
+  rewardItem1: Apple
   rewardItem1Amount: 2
-  rewardItem2: Stone
+  rewardItem2: Apple
   rewardItem2Amount: 2
   firstRequirmentItem: Stick
   firstRequirementAmount: 2
-  secondRequirmentItem: 
-  secondRequirementAmount: 0
+  secondRequirmentItem: Stone
+  secondRequirementAmount: 2
   hasCheckpoints: 1
   checkpoints:
   - {fileID: 11400000, guid: b5eac83aa59fdb44f9ac2b8161558ae5, type: 2}

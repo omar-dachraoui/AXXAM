@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f493107abd361342b48d20acb150d82, type: 3}
   m_Name: Checkpoint_1
   m_EditorClassIdentifier: 
-  relatedQuestName: Baney
-  isCompleted: 1
+  relatedQuestName: What happened here
+  isCompleted: 0
