@@ -90,7 +90,6 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
                     Destroy(gameObject);
                     SelectionManager.Instance.HandIcon.gameObject.SetActive(false);
                     SelectionManager.Instance.HandIsVisible = false;
-                    SelectionManager.Instance.interaction_Info_UI.SetActive(false);
                 }
                 else
                 {

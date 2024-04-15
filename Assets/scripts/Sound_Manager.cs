@@ -13,6 +13,7 @@ public class Sound_Manager : MonoBehaviour
     public AudioSource chopsound;
     public AudioSource walkSound;
     public AudioSource craftSound;
+    public AudioSource eatSound;
     //music
     public AudioSource backgroundMusic;
     private void Awake()

@@ -15,7 +15,9 @@ public class CraftingSystem : MonoBehaviour
     // Inventory item list
     public List<string> InventoryItemList = new List<string>();
     // Blueprint class to store information about the crafting recipe
-    [SerializeField] List<BlueprintSO> blueprintsList = new List<BlueprintSO>();
+    [SerializeField] List<BlueprintSO> toolsBlueprintsList = new List<BlueprintSO>();
+    [SerializeField] List<BlueprintSO> survivalBlueprintsList = new List<BlueprintSO>();
+    [SerializeField] List<BlueprintSO> refineBlueprintsList = new List<BlueprintSO>();
 
     // Category Buttons
     Button toolsBTN,survivalBTN,refineBTN;
@@ -66,37 +68,16 @@ public class CraftingSystem : MonoBehaviour
         refineBTN = CraftingScreeenUI.transform.Find("Refine_button").GetComponent<Button>();
         refineBTN.onClick.AddListener(delegate { OpenRefineCategory(); });
 
-        // Setup Axe crafting UI elements
-        AxeReq1 = ToolScreenUI.transform.Find("Axe").transform.Find("req1").GetComponent<Text>();
-        AxeReq2 = ToolScreenUI.transform.Find("Axe").transform.Find("req2").GetComponent<Text>();
-
-        CraftAxeBTN = ToolScreenUI.transform.Find("Axe").transform.Find("Button").GetComponent<Button>();
-        CraftAxeBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[0]); });
-
-
-        // Setup plank crafting UI elements
-        PlankReq1 = refineScreenUI.transform.Find("plank").transform.Find("req1").GetComponent<Text>();
-        
-
-        craftplankBTN = refineScreenUI.transform.Find("plank").transform.Find("Button").GetComponent<Button>();
-        craftplankBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[1]); });
-
-          // Setup HealthPotion crafting UI elements
-        HPReq1 = survivalScreenUI.transform.Find("HealthPotion").transform.Find("req1").GetComponent<Text>();
-        HPReq2 = survivalScreenUI.transform.Find("HealthPotion").transform.Find("req2").GetComponent<Text>();
-        HPReq3 = survivalScreenUI.transform.Find("HealthPotion").transform.Find("req3").GetComponent<Text>();
-
-        craftHPBTN = survivalScreenUI.transform.Find("HealthPotion").transform.Find("Button").GetComponent<Button>();
-        craftHPBTN.onClick.AddListener(delegate { CraftAnyItem(blueprintsList[2]); });
+      
 
         
     }
 
     // Function to craft any item using the provided blueprint
-    private void CraftAnyItem(BlueprintSO blueprintToCraft)
+    public void CraftAnyItem(BlueprintSO blueprintToCraft)
     {
         
-            //Sound_Manager.Instance.PlaySound(Sound_Manager.Instance.craftSound);
+        //Sound_Manager.Instance.PlaySound(Sound_Manager.Instance.craftSound);
         // Add item into inventory
         
         for(var i = 0; i < blueprintToCraft.numberofproducedItems; i++)
@@ -112,7 +93,8 @@ public class CraftingSystem : MonoBehaviour
         
        
         StartCoroutine(calculate());
-        RefrechNeededItem();
+        
+       //BaseScreenUI.Instance.RefrechNeededItem();
         
     }
 
@@ -197,90 +179,34 @@ public class CraftingSystem : MonoBehaviour
             }
             isOpen = false;
         }
-        RefrechNeededItem();
+        //BaseScreenUI.Instance.RefrechNeededItem();
     }
 
     // Function to refresh UI based on required crafting items
-    public void RefrechNeededItem()
+  
+
+
+
+
+
+
+    public List<BlueprintSO> GetToolBlueprintList()
     {
-        // Count the number of Stone and Stick in the inventory
-        int stone_count = 0;
-        int stick_count = 0;
-        int log_count = 0;
-        int Apple_count = 0;
-        InventoryItemList = InventorySystem.Instance.itemList;
-
-        foreach (string itemName in InventoryItemList)
-        {
-            switch (itemName)
-            {
-                case "Stone":
-                    stone_count+=1;
-                    break;
-                case "Stick":
-                    stick_count+=1;
-                    break;
-                case "log":
-                    log_count+=1;
-                break;
-                case "Apple":
-                    Apple_count+=1;
-                break;
-            }
-        }
-
-        
-
-        // Set Axe requirements text
-        AxeReq1.text = "3Stone[" + stone_count + "]";
-        AxeReq2.text = "3Stick[" + stick_count + "]";
-
-        // Enable or disable Axe crafting button based on requirements
-        if (stone_count >= 3 && stick_count >= 3 && InventorySystem.Instance.CheckSlotAvailable(1))
-        {
-            CraftAxeBTN.gameObject.SetActive(true);
-        }
-        else
-        {
-            CraftAxeBTN.gameObject.SetActive(false);
-        }
-
-
-        // Set Axe requirements text
-        HPReq1.text = "1Stone[" + stone_count + "]";
-        HPReq2.text = "1Stick[" + stick_count + "]";
-        HPReq3.text = "1Apple[" + Apple_count + "]";
-
-        // Enable or disable Axe crafting button based on requirements
-        if (stone_count >= 1 && stick_count >= 1 && Apple_count>= 1 && InventorySystem.Instance.CheckSlotAvailable(1))
-        {
-            craftHPBTN.gameObject.SetActive(true);
-        }
-        else
-        {
-            craftHPBTN.gameObject.SetActive(false);
-        }
-
-
-
-
-
-      
-
-        // Set plank requirements text
-        PlankReq1.text = "1log[" + log_count + "]";
-        
-       
-
-        // Enable or disable plank crafting button based on requirements
-        if (log_count >= 1 && InventorySystem.Instance.CheckSlotAvailable(2))
-        {
-            craftplankBTN.gameObject.SetActive(true);
-        }
-        else
-        {
-            craftplankBTN.gameObject.SetActive(false);
-        }
-        
+        return toolsBlueprintsList;
     }
+
+    public List<BlueprintSO> GetSurvivalBlueprintList()
+    {
+        return survivalBlueprintsList;
+    }
+
+    public List<BlueprintSO> GetRefineBlueprintList()
+    {
+        return refineBlueprintsList;
+    }
+
+
 }
+
+
+

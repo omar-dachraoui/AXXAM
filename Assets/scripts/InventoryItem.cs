@@ -84,7 +84,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 // Setting this specific game object to be the item we want to destroy later
                 itemPendingConsumption = gameObject;
                 consumingFunction(healthEffect, caloriesEffect, hydrationEffect);
-                Sound_Manager.Instance.PlaySound(Sound_Manager.Instance.chopsound);
+                Sound_Manager.Instance.PlaySound(Sound_Manager.Instance.craftSound);
             }
             // Equipment item handling
             if (isEquipment && isInsideQuickSlot == false && EquipSystem.Instance.CheckIfFull() == false)
@@ -107,7 +107,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 // Destroy the consumable item
                 DestroyImmediate(gameObject);
                 InventorySystem.Instance.RecalculateList();
-                CraftingSystem.Instance.RefrechNeededItem();
+                BaseScreenUI.Instance.RefrechNeededItem();
                 QuestManager.Instance.RefreshedTrackedQuestList();
             }
         }

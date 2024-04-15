@@ -103,7 +103,8 @@ public class InventorySystem : MonoBehaviour
         itemList.Add(ItemName);
         triggerPickupPop(ItemName, itemToAdd.GetComponent<Image>().sprite);
         RecalculateList();
-        CraftingSystem.Instance.RefrechNeededItem();
+        //BaseScreenUI.Instance.RefrechNeededItem();
+        
 
 
         QuestManager.Instance.RefreshedTrackedQuestList();
@@ -175,7 +176,7 @@ public class InventorySystem : MonoBehaviour
         
         RecalculateList();
         QuestManager.Instance.RefreshedTrackedQuestList();
-        CraftingSystem.Instance.RefrechNeededItem();
+        //BaseScreenUI.Instance.RefrechNeededItem();
 
        
     }

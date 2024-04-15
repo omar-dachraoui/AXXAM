@@ -10,6 +10,11 @@ public class BlueprintSO : ScriptableObject
     [Header("Blueprint Information")]
 
 
+    [Tooltip("Image of the crafted item")]
+    public Sprite image;        // Image of the crafted item
+
+
+    
     
     // Fields to store information about the blueprint
     [Tooltip("Name of the crafted item")]
