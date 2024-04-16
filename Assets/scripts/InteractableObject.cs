@@ -31,11 +31,7 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
     void Update()
     {
         // Check if the player presses the 'E' key, is in range, the object is targeted, and it's the selected object
-        if (Input.GetKeyDown(KeyCode.E) && playerinrange && SelectionManager.Instance.ontarget && SelectionManager.Instance.SelectedObject == gameObject)
-        {
-            Interact();
-            
-        }
+       
 
         
     }
