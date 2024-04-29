@@ -18,23 +18,16 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
     AudioSource audioSource;
 
     // Method to get the name of the item
-    public string GetItemName()
-    {
-        return ItemName;
-    }
+    // public string GetItemName()
+    // {
+    //     return ItemName;
+    // }
 
 
 
     
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Check if the player presses the 'E' key, is in range, the object is targeted, and it's the selected object
-       
-
-        
-    }
+  
     private void Start()
     {
         if(rune)
@@ -105,7 +98,7 @@ public class InteractableObject : MonoBehaviour,IobjectInteractable
                 SelectionManager.Instance.ontarget = true;
                 SelectionManager.Instance.SelectedObject = this.gameObject;
                 // Display the item name from the InteractableObject component
-                SelectionManager.Instance.interaction_text.text = GetItemName();
+                SelectionManager.Instance.interaction_text.text = ItemName;
 
                 // Show the interaction UI
                 SelectionManager.Instance.interaction_Info_UI.SetActive(true);
