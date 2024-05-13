@@ -553,14 +553,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cf0551acb082e418e93b81182205ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stone: {fileID: 926558271}
-  stick: {fileID: 2077778018}
-  log: {fileID: 1089136987}
   CraftingScreeenUI: {fileID: 1691944183}
   ToolScreenUI: {fileID: 340409318}
   survivalScreenUI: {fileID: 1210094031}
   refineScreenUI: {fileID: 77837159}
   InventoryItemList: []
+  toolsBlueprintsList: []
+  survivalBlueprintsList: []
+  refineBlueprintsList: []
   isOpen: 0
 --- !u!4 &102415294 stripped
 Transform:
@@ -7922,6 +7922,7 @@ MonoBehaviour:
   chopsound: {fileID: 795584114}
   walkSound: {fileID: 795584116}
   craftSound: {fileID: 795584113}
+  eatSound: {fileID: 0}
   backgroundMusic: {fileID: 795584115}
 --- !u!1 &804868905
 GameObject:
@@ -15968,6 +15969,8 @@ MonoBehaviour:
   trackerRowPrefab: {fileID: 8494387952154726019, guid: a1a05c4603d0a8b40be88395663c6b15,
     type: 3}
   allTrackedQuests: []
+  interactableObject: {fileID: 0}
+  checkpointSO: {fileID: 0}
 --- !u!1001 &1837084709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18072,6 +18075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction_Info_UI: {fileID: 620953616}
+  interaction_text: {fileID: 0}
   ontarget: 0
   SelectedObject: {fileID: 0}
   SlectedTree: {fileID: 0}
@@ -18080,7 +18084,6 @@ MonoBehaviour:
   pickUpLayerMask:
     serializedVersion: 2
     m_Bits: 1279
-  centerDotIcon: {fileID: 9051861880163204970}
   HandIcon: {fileID: 1354658245}
   HandIsVisible: 0
 --- !u!65 &2137652673
