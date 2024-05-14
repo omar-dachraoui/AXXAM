@@ -114,31 +114,20 @@ public class EquipSystem : MonoBehaviour
 
     // Method to set the equipped model based on the selected item
     private void SetEquippedModel(GameObject selectedSlotObject)
-{
-    // Destroy any existing equipped model
-    if (selectedItemModel != null)
     {
-        DestroyImmediate(selectedItemModel.gameObject);
-        selectedItemModel = null;
-    }
+        // Destroy any existing equipped model
+        if (selectedItemModel != null)
+        {
+            DestroyImmediate(selectedItemModel.gameObject);
+            selectedItemModel = null;
+        }
 
-    // Get the name of the selected item without the "(Clone)" suffix
-    string selectedSlotObjectName = selectedSlotObject.name.Replace("(Clone)", "");
-
-    // Find the game object in the tool_Holder with the same name
-    Transform tool = tool_Holder.transform.Find(selectedSlotObjectName);
-    if (tool != null)
-    {
-        // Activate the found tool
-        tool.gameObject.SetActive(true);
-        selectedItemModel = tool.gameObject;
+        // Get the name of the selected item without the "(Clone)" suffix
+        string selectedSlotObjectName = selectedSlotObject.name.Replace("(Clone)", "");
+        // Instantiate the corresponding model and set its position and rotation
+        selectedItemModel = Instantiate(Resources.Load<GameObject>(selectedSlotObjectName + "_Model"), new Vector3(0.3f, -0.2f, 0.3f), Quaternion.Euler(7, 106f, 20f));
+        selectedItemModel.transform.SetParent(tool_Holder.transform, false);
     }
-    else
-    {
-        Debug.LogError("No tool found with name: " + selectedSlotObjectName);
-    }
-}
-
 
     // Method to retrieve the game object associated with the selected item
     private GameObject getSelectedItem(int number)
