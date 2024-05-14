@@ -143,4 +143,3 @@ MonoBehaviour:
   playerinrange: 0
   ItemName: Apple
   rune: 0
-  audioSource: {fileID: 0}
