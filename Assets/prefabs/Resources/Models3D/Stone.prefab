@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2970431927444355520}
   - component: {fileID: 957321859623988973}
   - component: {fileID: 2522754076324474990}
-  - component: {fileID: 2002022445295510684}
   - component: {fileID: 4286418913282314763}
+  - component: {fileID: 9173335753450416448}
+  - component: {fileID: 7727104358378379027}
   m_Layer: 0
   m_Name: Stone
   m_TagString: pickable
@@ -107,8 +108,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 40, y: 2.6518428, z: 40}
   m_Center: {x: -0.041031715, y: -0.047895726, z: 0.08643513}
---- !u!135 &2002022445295510684
-SphereCollider:
+--- !u!114 &4286418913282314763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529212714406117518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0eb58df11f4224f9ad4dd883ec8185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerinrange: 0
+  ItemName: Stone
+  rune: 0
+--- !u!64 &9173335753450416448
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -125,20 +141,34 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3.71
-  m_Center: {x: -0.041031715, y: -0.047895726, z: 0.08643513}
---- !u!114 &4286418913282314763
-MonoBehaviour:
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 48320e7576ce0664eb501ebbd6c815da, type: 3}
+--- !u!54 &7727104358378379027
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5529212714406117518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0eb58df11f4224f9ad4dd883ec8185, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerinrange: 0
-  ItemName: Stone
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
