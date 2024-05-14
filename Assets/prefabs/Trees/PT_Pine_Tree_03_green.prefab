@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7700044247893339886}
   - component: {fileID: 5414631881639682170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PT_Pine_Tree_03_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 108788349557622689}
   - component: {fileID: 7848408983543135880}
   - component: {fileID: 6841478492819860545}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PT_Pine_Tree_03_green_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerinrange: 0
   ItemName: axe needed
+  rune: 0
 --- !u!136 &6841478492819860545
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ GameObject:
   - component: {fileID: 8797214555719474326}
   - component: {fileID: 3883991483898210237}
   - component: {fileID: 8197979528891587312}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PT_Pine_Tree_03_green_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerinrange: 0
   ItemName: axe needed
+  rune: 0
 --- !u!136 &8197979528891587312
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -323,7 +325,7 @@ GameObject:
   - component: {fileID: 8027874000932439300}
   - component: {fileID: 4803046959247651260}
   - component: {fileID: 3448969520934688603}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PT_Pine_Tree_03_green_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerinrange: 0
   ItemName: axe needed
+  rune: 0
 --- !u!136 &3448969520934688603
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -446,6 +449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tree_base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958025739647811637, guid: 845faff20476a9244bc7af35df99aa4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8807011398607533851, guid: 845faff20476a9244bc7af35df99aa4f,
         type: 3}
@@ -521,6 +529,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_base (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1958025739647811637, guid: 845faff20476a9244bc7af35df99aa4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8807011398607533851, guid: 845faff20476a9244bc7af35df99aa4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -594,6 +607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tree_base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958025739647811637, guid: 845faff20476a9244bc7af35df99aa4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8807011398607533851, guid: 845faff20476a9244bc7af35df99aa4f,
         type: 3}
