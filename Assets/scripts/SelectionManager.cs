@@ -27,12 +27,7 @@ public class SelectionManager : MonoBehaviour
     // Flag to track if the hand icon is visible
     public bool HandIsVisible;
 
-    private void Start()
-    {
-        // Initialize the interaction_text by getting the Text component from interaction_Info_UI
-        interaction_text = interaction_Info_UI.GetComponent<Text>();
-        ontarget = false;
-    }
+  
 
     private void Awake()
     {
@@ -45,6 +40,9 @@ public class SelectionManager : MonoBehaviour
         {
             Instance = this;
         }
+         // Initialize the interaction_text by getting the Text component from interaction_Info_UI
+        interaction_text = interaction_Info_UI.GetComponent<Text>();
+        ontarget = false;
     }
 
     void Update()
